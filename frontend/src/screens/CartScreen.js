@@ -33,7 +33,7 @@ const CartScreen = ({ match, location, history }) => {
    dispatch(removeFromCart(id))
 
    //that was a bug that remains the last product to the cart after reload the browser that page,thats why params always give that specific id  of last added product ,and it reload with the id ,and it remians in the storage//
-   //BUG FIXED by ME//
+   
    history.push('/cart')
   }
 
