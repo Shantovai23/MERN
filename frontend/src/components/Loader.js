@@ -10,7 +10,7 @@ const Loader = () => {
       role="status"
       style={{ width: "40px", height: "40px", margin: "auto",display:'block' }}
     >
-    <span class='sr-only'>Loading...</span>
+    <span className='sr-only'>Loading...</span>
     </Spinner>
     
   );
