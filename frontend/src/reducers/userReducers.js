@@ -13,9 +13,9 @@ export const userLoginReducer = (
   
       case USER_LOGIN_FAIL:
         return { loading: false, error: action.payload };
-
         case USER_LOGOUT:
             return {};
+            
       default:
         return state;
     }
@@ -56,8 +56,7 @@ export const userLoginReducer = (
         return state
     }
   }
-
-
+  
   export const userUpdateProfileReducer = (state = {}, action) => {
     switch (action.type) {
       case USER_UPDATE_PROFILE_REQUEST:
@@ -72,7 +71,6 @@ export const userLoginReducer = (
         return state
     }
   }
-
 
 
   
