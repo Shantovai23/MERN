@@ -36,9 +36,7 @@ export const cartReducers = (state = { cartItems: [],shippingAddress:{} }, actio
           return{
             ...state,
             paymentMethod:action.payload
-          }
-  
-
+          };
     default:
       return state;
   }
