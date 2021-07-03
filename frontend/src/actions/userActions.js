@@ -1,5 +1,5 @@
 import axios from "axios"
-import { CART_ITEM_RESET } from "../constant/cartConstants"
+import { ORDER_LIST_MY_RESET } from "../constant/orderConstants"
 import { USER_DETAILS_FAIL, USER_DETAILS_REQUEST, USER_DETAILS_RESET, USER_DETAILS_SUCCESS, USER_LOGIN_FAIL, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGOUT, USER_REGISTER_FAIL, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS, USER_UPDATE_PROFILE_FAIL, USER_UPDATE_PROFILE_REQUEST, USER_UPDATE_PROFILE_SUCCESS } from "../constant/userConstants"
 
 export const login=(email,password)=> async (dispatch)=>{
@@ -40,6 +40,7 @@ export const logout=()=> async(dispatch)=>{
     localStorage.removeItem('paymentMethod')
     dispatch({type: USER_LOGOUT})
     dispatch({type:USER_DETAILS_RESET})
+    dispatch({type:ORDER_LIST_MY_RESET})
     document.location.href = '/login'
 }
 
