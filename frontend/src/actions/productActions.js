@@ -11,6 +11,9 @@ import {
   PRODUCT_LIST_FAIL,
   PRODUCT_LIST_REQUEST,
   PRODUCT_LIST_SUCCESS,
+  PRODUCT_NOTI_FAIL,
+  PRODUCT_NOTI_REQUEST,
+  PRODUCT_NOTI_SUCCESS,
   PRODUCT_UPDATE_FAIL,
   PRODUCT_UPDATE_REQUEST,
   PRODUCT_UPDATE_SUCCESS,
@@ -182,3 +185,5 @@ export const updateProduct = (product) => async (dispatch, getState) => {
     })
   }
 }
+
+

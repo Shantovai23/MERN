@@ -16,6 +16,7 @@ const ProductListScreen = ({ history, match }) => {
 
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
+
   const productDelete = useSelector((state) => state.productDelete);
   const {
     loading: loadingDelete,
@@ -31,6 +32,7 @@ const ProductListScreen = ({ history, match }) => {
     product:createdProduct
   } = productCreate;
 
+
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
@@ -43,6 +45,8 @@ const ProductListScreen = ({ history, match }) => {
       history.push(`/admin/product/${createdProduct._id}/edit`);
     } else {
       dispatch(listProducts());
+   
+
     }
   }, [
     dispatch,
@@ -60,7 +64,9 @@ const ProductListScreen = ({ history, match }) => {
   };
 
   const createProductHandler = (product) => {
-    dispatch(createProduct())
+    dispatch(createProduct()) 
+    
+
   };
   return (
     <>
