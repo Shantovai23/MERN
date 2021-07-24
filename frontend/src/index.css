@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Tourney&display=swap');
+
+
 main{
     min-height: 90vh;
 }
@@ -9,3 +12,10 @@ h3{
 .rating span{
     margin: 0.080rem;
 }
+.logoName{
+  font-family: 'Tourney', cursive;
+  font-size: 22px;
+  margin: 6px 6px;
+  color: #ff3377;
+}
+

@@ -4,6 +4,7 @@ import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { logout } from "../actions/userActions";
 
+
 const Header = ({history}) => {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
@@ -18,17 +19,17 @@ const Header = ({history}) => {
   
   return (
     <header>
-      <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
-        <Container>
+      <Navbar bg="light" variant="light" expand="lg" collapseOnSelect id='bg' >
+        <Container fluid >
           <LinkContainer to="/">
-            <Navbar.Brand>ProShop</Navbar.Brand>
+            <Navbar.Brand> <i class="fab fa-pagelines" style={{fontSize:'35px',color:'#ff3377'}}></i><span className='logoName'>KrishiVai.bd</span> </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
               <LinkContainer to="/cart">
-                <Nav.Link>
-                  <i className="fas fa-shopping-cart"></i> Cart
+                <Nav.Link >
+                  <i className="fas fa-shopping-cart" style={{color:'#ff3377'}}></i><span style={{color:'#ff3377'}}> Cart</span> 
                 </Nav.Link>
               </LinkContainer>
               {userInfo ? (
@@ -43,7 +44,7 @@ const Header = ({history}) => {
               ) : (
                 <LinkContainer to="/login">
                   <Nav.Link>
-                    <i className="fas fa-user"></i>Sign In
+                    <i className="fas fa-user" style={{color:'#ff3377'}}></i><span style={{color:'#ff3377'}}>Login</span>
                   </Nav.Link>
                 </LinkContainer>
               )}
@@ -66,6 +67,8 @@ const Header = ({history}) => {
         </Container>
       </Navbar>
     </header>
+
+
   );
 };
 
