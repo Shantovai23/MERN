@@ -22,14 +22,14 @@ const Header = ({history}) => {
       <Navbar bg="light" variant="light" expand="lg" collapseOnSelect id='bg' >
         <Container fluid >
           <LinkContainer to="/">
-            <Navbar.Brand> <i class="fab fa-pagelines" style={{fontSize:'35px',color:'#ff3377'}}></i><span className='logoName'>KrishiVai.bd</span> </Navbar.Brand>
+            <Navbar.Brand> <i class="fab fa-pagelines" style={{fontSize:'35px',color:'#008744 '}}></i><span className='logoName'>KrishiVai.bd</span> </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
               <LinkContainer to="/cart">
                 <Nav.Link >
-                  <i className="fas fa-shopping-cart" style={{color:'#ff3377'}}></i><span style={{color:'#ff3377'}}> Cart</span> 
+                  <i className="fas fa-shopping-cart"></i> Cart 
                 </Nav.Link>
               </LinkContainer>
               {userInfo ? (
@@ -44,7 +44,7 @@ const Header = ({history}) => {
               ) : (
                 <LinkContainer to="/login">
                   <Nav.Link>
-                    <i className="fas fa-user" style={{color:'#ff3377'}}></i><span style={{color:'#ff3377'}}>Login</span>
+                    <i className="fas fa-user"></i>Login
                   </Nav.Link>
                 </LinkContainer>
               )}
@@ -67,8 +67,6 @@ const Header = ({history}) => {
         </Container>
       </Navbar>
     </header>
-
-
   );
 };
 
