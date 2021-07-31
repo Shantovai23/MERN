@@ -5,6 +5,7 @@ import {Route} from 'react-router-dom'
 import { LinkContainer } from "react-router-bootstrap";
 import { logout } from "../actions/userActions";
 import SearchBox from './SearchBox'
+import TopHeader from './TopHeader'
 
 
 const Header = ({history}) => {
@@ -21,6 +22,7 @@ const Header = ({history}) => {
   
   return (
     <header>
+    <TopHeader/>
       <Navbar bg="light" variant="light" expand="lg" collapseOnSelect id='bg' >
         <Container fluid >
           <LinkContainer to="/">
@@ -33,6 +35,16 @@ const Header = ({history}) => {
               <LinkContainer to="/cart">
                 <Nav.Link>
                   <i className="fas fa-shopping-cart"></i>Cart 
+                </Nav.Link>
+              </LinkContainer>
+              <LinkContainer to="/about">
+                <Nav.Link>
+                <i class="fas fa-address-card"></i>About
+                </Nav.Link>
+              </LinkContainer>
+              <LinkContainer to="/help">
+                <Nav.Link>
+                <i class="fas fa-people-carry"></i>Help
                 </Nav.Link>
               </LinkContainer>
               {userInfo ? (
