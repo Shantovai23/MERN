@@ -66,8 +66,36 @@ h3{
 }
 
 .headImg{
- max-width: 450px;
+ max-width:auto;
 }
+
+
+.works-text{
+  margin-bottom: 60px;
+  color: #3CA861;
+}
+
+.works-text::after{
+  content: " ";
+  display: block;
+  height: .2rem;
+  background: #fff;
+  width: 10rem;
+  margin: auto;
+  background: #3CA861;  /* fallback for old browsers */
+   background: -webkit-linear-gradient(to right, #7BC6CC, #3CA861);  /* Chrome 10-25, Safari 5.1-6 */
+   background: linear-gradient(to right, #7BC6CC, #3CA861); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  margin-top: 1rem;
+}
+
+.icons{
+  font-size: 45px;
+  color: #3CA861;
+  padding-bottom: 30px;
+}
+
+
 
 
 

@@ -6,6 +6,7 @@ import Loader from "../components/Loader";
 import Message from "../components/Message";
 import { listProducts } from "../actions/productActions";
 import HeadingSection from '../components/HeadingSection'
+import HowitWorks from '../components/HowitWorks'
 
 const HomeScreen = ({ match }) => {
   const keyword = match.params.keyword;
@@ -21,8 +22,9 @@ const HomeScreen = ({ match }) => {
   return (
     <>
     <HeadingSection/>
+    <HowitWorks/>
 
-      <h1 className='text-center'> Latest Products</h1>
+      <h2 className='text-center works-text py-4 my-2'> Latest Products</h2>
       {loading ? (
         <Loader></Loader>
       ) : error ? (
