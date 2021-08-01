@@ -1,3 +1,7 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap');
+
+
 @import url('https://fonts.googleapis.com/css2?family=Tourney&display=swap');
 
 
@@ -44,6 +48,46 @@ h3{
 }
 .top-header-color{
   background-color: #F7F8FA;
+}
+
+.flex{
+  font-family: 'Merriweather Sans', sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  justify-content: space-between;
+}
+
+
+.marked-text{
+  color: #3CA861;
+}
+
+.headImg{
+ max-width: 450px;
+}
+
+
+
+.headImg {
+  position: relative;
+  animation-name: headImg;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes headImg {
+  0%   { transform: translateY(10px);}
+ 
+  100% { transform: translateY(-10px);}
+}
+@-webkit-keyframes headImg {
+  0%   { transform: translateY(10px);}
+ 
+  100% { transform: translateY(-10px);}
 }
 
 
