@@ -6,8 +6,8 @@
 
 
 main{
-    min-height: 90vh;
-}
+    min-height: 40vh;
+} 
 
 h3{
   padding: 1rem 0;
@@ -85,7 +85,6 @@ h3{
   background: #3CA861;  /* fallback for old browsers */
    background: -webkit-linear-gradient(to right, #7BC6CC, #3CA861);  /* Chrome 10-25, Safari 5.1-6 */
    background: linear-gradient(to right, #7BC6CC, #3CA861); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
   margin-top: 1rem;
 }
 
@@ -94,6 +93,48 @@ h3{
   color: #3CA861;
   padding-bottom: 30px;
 }
+
+.sign-in{
+  color: #3CA861;
+  font-family: 'Merriweather Sans', sans-serif;
+  text-transform: capitalize;
+  margin: 20px;
+}
+
+.founder{
+  color: #3CA861;
+  text-transform: capitalize;
+  font-family: 'Merriweather Sans', sans-serif;
+
+}
+.about-krishi{
+  text-transform: capitalize;
+  text-align: justify;
+  font-family: 'Merriweather Sans', sans-serif;
+  padding: 20px;
+}
+
+.founder-img{
+  margin-top: -50px;
+}
+
+.modal-text{
+  text-transform: capitalize;
+}
+
+.modal-text-email{
+  text-transform: none;
+}
+
+.founder-btn{
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+  border-radius: 5px;
+}
+
 
 
 

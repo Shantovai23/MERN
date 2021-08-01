@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, } from "react-router-dom";
 import { Form, Button, Row, Col } from "react-bootstrap";
+import Badge from 'react-bootstrap/Badge'
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
@@ -30,7 +31,7 @@ const LoginScreen = ({location,history}) => {
   }
   return (
     <FormContainer>
-      <h2>Sign In</h2>
+      <h2 className='sign-in'>Sign In</h2>
       {error && <Message variant='danger'>{error}</Message>}
       {loading && <Loader/>}
       <Form onSubmit={submitHandler}>
@@ -54,7 +55,7 @@ const LoginScreen = ({location,history}) => {
           ></Form.Control>
         </Form.Group>
 
-        <Button type="submit" variant="primary">
+        <Button type="submit" variant="primary" style={{backgroundColor:'#3CA861',borderRadius:'5px'}}>
           Login
         </Button>
       </Form>
@@ -62,8 +63,9 @@ const LoginScreen = ({location,history}) => {
       <Row className="py-3">
         <Col>
           New Customer?
+
           <Link to={redirect ? `register?redirect=${redirect}` : "/register"}>
-            Register
+          Register
           </Link>
         </Col>
       </Row>

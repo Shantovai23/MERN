@@ -6,6 +6,7 @@ import Message from "../components/Message";
 import Loader from "../components/Loader";
 import FormContainer from "../components/FormContainer";
 import { register } from "../actions/userActions";
+import PasswordStrengthBar from 'react-password-strength-bar';
 
 const RegisterScreen = ({location,history}) => {
   const [name, setName] = useState("");
@@ -38,7 +39,7 @@ const RegisterScreen = ({location,history}) => {
   }
   return (
     <FormContainer>
-      <h2>Sign Up</h2>
+      <h2 className='sign-in'>Sign Up</h2>
       {message && <Message variant='danger'>{message}</Message>}
       {error && <Message variant='danger'>{error}</Message>}
       {loading && <Loader/>}
@@ -74,6 +75,8 @@ const RegisterScreen = ({location,history}) => {
           ></Form.Control>
         </Form.Group>
 
+        <PasswordStrengthBar password={password} minLength={4} barColors={['#ddd', '#ef4836', '#f6b44d', '#2b90ef', '#25c281']} />
+
         <Form.Group controlId="ConfirmPassword">
           <Form.Label> Confirm Password</Form.Label>
           <Form.Control
@@ -84,7 +87,7 @@ const RegisterScreen = ({location,history}) => {
           ></Form.Control>
         </Form.Group>
 
-        <Button type="submit" variant="primary">
+        <Button type="submit" variant="primary" style={{backgroundColor:'#3CA861',borderRadius:'5px'}}>
          Register
         </Button>
       </Form>
