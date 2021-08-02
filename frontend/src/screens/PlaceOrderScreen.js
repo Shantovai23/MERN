@@ -47,7 +47,7 @@ const PlaceOrderScreen = ({ history }) => {
         <Col md={8}>
           <ListGroup variant="flush">
             <ListGroup.Item>
-              <h2>Shipping</h2>
+              <h2 style={{color:'#3CA861'}} className='shipping'>Shipping</h2>
               <p>
                 <strong>Address:</strong>
                 {cart.shippingAddress.address}, {cart.shippingAddress.city},{" "}
@@ -57,7 +57,7 @@ const PlaceOrderScreen = ({ history }) => {
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <h2>Payment Method</h2>
+              <h2 style={{color:'#3CA861'}} className='payment'>Payment Method</h2>
               <p>
                 <strong>Method:</strong>
                 {cart.paymentMethod}
@@ -65,7 +65,7 @@ const PlaceOrderScreen = ({ history }) => {
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <h2>Order Items</h2>
+              <h2 style={{color:'#3CA861'}} className='payment'>Order Items</h2>
               <p>
                 {cart.cartItems.length === 0 ? (
                   <Message>Your Cart is Empty</Message>
@@ -105,7 +105,7 @@ const PlaceOrderScreen = ({ history }) => {
           <Card>
             <ListGroup variant="flush">
               <ListGroup.Item>
-                <h2>Order Summery</h2>
+                <h2 style={{color:'#3CA861'}} className='payment'>Order Summery</h2>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
@@ -143,6 +143,8 @@ const PlaceOrderScreen = ({ history }) => {
                   className="btn btn-block"
                   disabled={cart.cartItems.length === 0}
                   onClick={placeOrderHandler}
+                  variant='success'
+                  style={{borderRadius:'5px'}}
                 >
                   Place Order
                 </Button>

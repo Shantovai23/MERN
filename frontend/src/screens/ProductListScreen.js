@@ -73,10 +73,10 @@ const ProductListScreen = ({ history, match }) => {
     <>
       <Row className="align-items-center">
         <Col>
-          <h4>Products</h4>
+          <h2 className='products-list'>Products</h2>
         </Col>
         <Col className="text-right">
-          <Button className="my-3" onClick={createProductHandler}>
+          <Button className="my-3" onClick={createProductHandler} variant='success' style={{borderRadius: '5px'}}>
             <i className="fas fa-plus"></i> Create Product
           </Button>
         </Col>
@@ -90,7 +90,7 @@ const ProductListScreen = ({ history, match }) => {
       ) : error ? (
         <Message variant="danger">{error}</Message>
       ) : (
-        <Table striped bordered hover responsive className="table-sm">
+        <Table striped bordered hover responsive className="table-sm mt-3" variant='dark'>
           <thead>
             <th>ID</th>
             <th>Name</th>

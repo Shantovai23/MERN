@@ -22,7 +22,7 @@ const ShippingScreen = ({ history }) => {
   return (
     <FormContainer>
     <CheckoutSteps step1 step2/>
-      <h2>Shipping</h2>
+      <h2 className='shipping'>Shipping</h2>
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="address">
           <Form.Label>Address</Form.Label>
@@ -32,6 +32,7 @@ const ShippingScreen = ({ history }) => {
             value={address}
             required
             onChange={(e) => setAddress(e.target.value)}
+            className='input-border'
           ></Form.Control>
         </Form.Group>
 
@@ -43,6 +44,7 @@ const ShippingScreen = ({ history }) => {
             value={city}
             required
             onChange={(e) => setCity(e.target.value)}
+            className='input-border'
           ></Form.Control>
         </Form.Group>
 
@@ -55,6 +57,7 @@ const ShippingScreen = ({ history }) => {
             value={postalCode}
             required
             onChange={(e) => setPostalCode(e.target.value)}
+            className='input-border'
           ></Form.Control> 
         </Form.Group>
 
@@ -67,10 +70,11 @@ const ShippingScreen = ({ history }) => {
             value={country}
             required
             onChange={(e) => setCountry(e.target.value)}
+            className='input-border'
           ></Form.Control> 
         </Form.Group>
 
-        <Button type='submit' variant='primary'>Continue</Button>
+        <Button type='submit' variant='success' style={{borderRadius:'5px'}}>Continue</Button>
       </Form>
     </FormContainer>
   );

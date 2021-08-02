@@ -45,12 +45,7 @@ const App = () => {
          <Route path='/about' exact component={About}/>
          <Route path='/search/:keyword' exact component={HomeScreen}/>
          <Route path='/' exact component={HomeScreen} />
-         </Container>
-       
-      
-       
-         
-        
+         </Container>    
       </main>
       <Footer />
     </Router>

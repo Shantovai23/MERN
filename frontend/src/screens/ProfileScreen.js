@@ -60,7 +60,7 @@ const ProfileScreen = ({  history }) => {
     <Row>
       <Col md={3}>
       {console.log('testttt',success)}
-        <h2>User Profile</h2>
+        <h2 className='user-profile'>Profile</h2>
         {loading && <Loader/>}
         {message && <Message variant="danger">{message}</Message>}
         {error && <Message variant='danger'>{error}</Message>}
@@ -74,6 +74,7 @@ const ProfileScreen = ({  history }) => {
               placeholder="Enter name"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              className='input-border'
             ></Form.Control>
           </Form.Group>
 
@@ -84,6 +85,7 @@ const ProfileScreen = ({  history }) => {
               placeholder="Enter email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              className='input-border'
             ></Form.Control>
           </Form.Group>
 
@@ -94,6 +96,7 @@ const ProfileScreen = ({  history }) => {
               placeholder="Enter password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              className='input-border'
             ></Form.Control>
           </Form.Group>
 
@@ -104,22 +107,23 @@ const ProfileScreen = ({  history }) => {
               placeholder="Confirm password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
+              className='input-border'
             ></Form.Control>
           </Form.Group>
 
-          <Button type="submit" variant="primary">
+          <Button type="submit" variant="success" style={{borderRadius:'5px'}}>
             Update
           </Button>
         </Form>
       </Col>
       <Col md={9}>
-        <h2>My Orders</h2>
+        <h2 className='user-orders'>My Orders</h2>
         {loadingOrders ? (
           <Loader />
         ) : errorOrders ? (
           <Message variant='danger'>{errorOrders}</Message>
         ) : (
-          <Table striped bordered hover responsive className='table-sm'>
+          <Table striped bordered hover responsive className='table-sm table-margin'>
             <thead>
               <tr>
                 <th>ID</th>

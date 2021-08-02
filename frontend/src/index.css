@@ -135,6 +135,28 @@ h3{
   border-radius: 5px;
 }
 
+.user-profile,.user-orders,.userlist,.user-edit,.products-list,.product-edit,.order-list,.reviews,.comment,.cart,.add-box,.shipping,.payment,.oder{
+  color: #3CA861;
+  font-family: 'Merriweather Sans', sans-serif;
+  text-transform: capitalize;
+  margin: 20px;
+  margin-left: 0;
+}
+
+.input-border{
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #3CA861; 
+}
+
+.table-margin{
+  margin-top: 30px;
+}
+
+.user-table-email{
+  color: #fff;
+}
+
 
 
 

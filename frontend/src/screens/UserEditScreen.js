@@ -46,7 +46,7 @@ const UserEditScreen = ({ match, history }) => {
         Go Back
       </Link>
       <FormContainer>
-        <h2>Edit User</h2>
+        <h2 className='user-edit'>Edit User</h2>
         {loadingUpdate && <Loader/>}
         {errorUpdate && <Message variant='danger'>{errorUpdate}</Message>}
         {loading ? (
@@ -62,6 +62,7 @@ const UserEditScreen = ({ match, history }) => {
                 placeholder="Enter Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                className='input-border'
               ></Form.Control>
             </Form.Group>
             <Form.Group controlId="email">
@@ -71,6 +72,7 @@ const UserEditScreen = ({ match, history }) => {
                 placeholder="Enter Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                className='input-border'
               ></Form.Control>
             </Form.Group>
             <Form.Group controlId="isAdmin">
@@ -81,7 +83,7 @@ const UserEditScreen = ({ match, history }) => {
                 onChange={(e) => setIsAdmin(e.target.checked)}
               ></Form.Check>
             </Form.Group>
-            <Button type="submit" variant="primary">
+            <Button type="submit" variant="success" style={{borderRadius:'5px'}}>
               Update
             </Button>
           </Form>

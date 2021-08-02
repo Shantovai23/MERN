@@ -42,11 +42,7 @@ const Header = ({history}) => {
                 <i class="fas fa-address-card"></i>About
                 </Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/help">
-                <Nav.Link>
-                <i class="fas fa-people-carry"></i>Help
-                </Nav.Link>
-              </LinkContainer>
+
               {userInfo ? (
                 <NavDropdown title={ userInfo.name } id="username">
                   <LinkContainer to="/profile">

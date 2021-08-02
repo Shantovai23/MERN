@@ -98,7 +98,7 @@ const ProductEditScreen = ({ match, history }) => {
         Go Back
       </Link>
       <FormContainer>
-        <h2>Edit Product</h2>
+        <h2 className='product-edit'>Edit Product</h2>
         {loadingUpdate && <Loader />}
         {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
         {loading ? (
@@ -114,6 +114,7 @@ const ProductEditScreen = ({ match, history }) => {
                 placeholder="Enter Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                className='input-border'
               ></Form.Control>
             </Form.Group>
 
@@ -124,6 +125,7 @@ const ProductEditScreen = ({ match, history }) => {
                 placeholder="Enter Price"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
+                className='input-border'
               ></Form.Control>
             </Form.Group>
 
@@ -151,6 +153,7 @@ const ProductEditScreen = ({ match, history }) => {
                 placeholder="Enter brand"
                 value={brand}
                 onChange={(e) => setBrand(e.target.value)}
+                className='input-border'
               ></Form.Control>
             </Form.Group>
 
@@ -161,6 +164,7 @@ const ProductEditScreen = ({ match, history }) => {
                 placeholder="Enter Category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
+                className='input-border'
               ></Form.Control>
             </Form.Group>
 
@@ -171,6 +175,7 @@ const ProductEditScreen = ({ match, history }) => {
                 placeholder="Enter Count In Stock"
                 value={countInStock}
                 onChange={(e) => setCountInStock(e.target.value)}
+                className='input-border'
               ></Form.Control>
             </Form.Group>
 
@@ -181,10 +186,11 @@ const ProductEditScreen = ({ match, history }) => {
                 placeholder="Enter Description"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
+                className='input-border'
               ></Form.Control>
             </Form.Group>
 
-            <Button type="submit" variant="primary">
+            <Button type="submit" variant="success" style={{borderRadius:'5px'}}>
               Update
             </Button>
           </Form>

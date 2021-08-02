@@ -12,7 +12,7 @@ const PaymentScreen = ({ history }) => {
   if (!shippingAddress) {
     history.push("/shipping");
   }
-  const [paymentMethod, setPaymentMethod] = useState("PayPal");
+  const [paymentMethod, setPaymentMethod] = useState("PayPal or SSL Commerce");
 
   const dispatch = useDispatch();
   const submitHandler = (e) => {
@@ -24,14 +24,14 @@ const PaymentScreen = ({ history }) => {
   return (
     <FormContainer>
       <CheckoutSteps step1 step2 step3 />
-      <h2>Payment Method</h2>
+      <h2 className='payment'>Payment Method</h2>
       <Form onSubmit={submitHandler}>
         <Form.Group>
-          <Form.Label as="legend">Select Method</Form.Label>
+          <Form.Label as="legend" style={{color:'#3CA861'}}>Select Method</Form.Label>
           <Col>
             <Form.Check
               type="radio"
-              label="Paypal or Credit Card"
+              label="Paypal or SSL Commerce"
               name="paymentMethod"
               id="paypal"
               value="PayPal"
@@ -49,7 +49,7 @@ const PaymentScreen = ({ history }) => {
             ></Form.Check> */}
           </Col>
         </Form.Group>
-        <Button type="submit" variant="primary">
+        <Button type="submit" variant="success" style={{borderRadius:'5px'}}>
           Continue
         </Button>
       </Form>

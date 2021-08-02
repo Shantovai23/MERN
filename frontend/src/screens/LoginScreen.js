@@ -42,6 +42,7 @@ const LoginScreen = ({location,history}) => {
             placeholder="Enter Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            className='input-border'
           ></Form.Control>
         </Form.Group>
 
@@ -52,6 +53,7 @@ const LoginScreen = ({location,history}) => {
             placeholder="Enter Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            className='input-border'
           ></Form.Control>
         </Form.Group>
 

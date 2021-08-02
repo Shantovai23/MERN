@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState,} from "react";
 import axios from 'axios'
-import { Row, Col, ListGroup, Image, Card, Button } from "react-bootstrap";
+import { Row, Col, ListGroup, Image, Card, Button ,Badge} from "react-bootstrap";
 import { PayPalButton } from 'react-paypal-button-v2'
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -82,12 +82,12 @@ const OrderScreen = ({ match,history }) => {
 
 
   return loading ? <Loader/> : error ? <Message variant='danger'>{error}</Message> : <>
-      <h2>Order : {order._id}</h2>
+     <h2 className='oder'>Order No : {order._id}</h2>
       <Row>
         <Col md={8}>
           <ListGroup variant="flush">
             <ListGroup.Item>
-              <h4>Shipping</h4>
+              <h4 className='oder' style={{color:'#3CA861'}}>Shipping</h4>
               <strong>Name : </strong> {order.user.name}
              <p><strong>Email :</strong> <a href={`mailto:${order.user.email}`}>{order.user.email}</a></p>
               <p>
@@ -100,7 +100,7 @@ const OrderScreen = ({ match,history }) => {
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <h4>Payment Method</h4>
+              <h4 className='oder' style={{color:'#3CA861'}}> Payment Method</h4>
               <p>
                 <strong>Method:</strong>
                 {order.paymentMethod}
@@ -109,7 +109,7 @@ const OrderScreen = ({ match,history }) => {
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <h4>Order Items</h4>
+              <h4 className='oder' style={{color:'#3CA861'}}>Order Items</h4>
               <p>
                 {order.orderItems.length === 0 ? (
                   <Message>Order is Empty</Message>
@@ -149,37 +149,38 @@ const OrderScreen = ({ match,history }) => {
           <Card>
             <ListGroup variant="flush">
               <ListGroup.Item>
-                <h4>Order Summery</h4>
+                <h4 className='oder' style={{color:'#3CA861'}}>Order Summery</h4>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Items</Col>
-                  <Col>${order.itemsPrice}</Col>
+                  <Col>Tk {order.itemsPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Shipping</Col>
-                  <Col>${order.shippingPrice}</Col>
+                  <Col>TK {order.shippingPrice}</Col>
                 </Row>
               </ListGroup.Item>
 
               <ListGroup.Item>
                 <Row>
                   <Col>Tax</Col>
-                  <Col>${order.taxPrice}</Col>
+                  <Col>TK {order.taxPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Total</Col>
-                  <Col>${order.totalPrice}</Col>
+                  <Col>TK {order.totalPrice}</Col>
                 </Row>
               </ListGroup.Item>
 
               {!order.isPaid && (
                 <ListGroup.Item>
                   {loadingPay && <Loader />}
+                  <Button type='button' className='btn-block my-2' variant='info' style={{borderRadius:'5px'}}>SSL Commerce</Button>
                   {!sdkReady ? (
                     <Loader />
                   ) : (
@@ -201,6 +202,8 @@ const OrderScreen = ({ match,history }) => {
                       type='button'
                       className='btn btn-block'
                       onClick={deliverHandler}
+                      variant='success'
+                      style={{borderRadius:'5px'}}
                     >
                       Mark As Delivered
                     </Button>

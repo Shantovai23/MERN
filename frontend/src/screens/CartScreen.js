@@ -44,7 +44,7 @@ const CartScreen = ({ match, location, history }) => {
   return (
     <Row>
       <Col md={8}>
-        <h1>Cart</h1>
+        <h2 className='cart'>Cart</h2>
         {cartItems.length === 0 ? (
           <Message>
             Your cart is Empty{" "}
@@ -69,6 +69,7 @@ const CartScreen = ({ match, location, history }) => {
                     <Form.Control
                       as="select"
                       value={item.qty}
+                      className='input-border'
                       onChange={(e) =>
                         dispatch(
                           addToCart(item.product, Number(e.target.value))
@@ -85,7 +86,7 @@ const CartScreen = ({ match, location, history }) => {
                     </Form.Control>
                   </Col>
                   <Col md={2}>
-                    <Button type='button' variant='light' onClick={()=>removeFromCartHandler(item.product)}>
+                    <Button type='button' variant='danger' style={{borderRadius:'5px'}} onClick={()=>removeFromCartHandler(item.product)}>
                         <i className='fas fa-trash'></i>
                     </Button>
                   </Col>
@@ -100,11 +101,11 @@ const CartScreen = ({ match, location, history }) => {
           <Card>
               <ListGroup variant='flush'>
                  <ListGroup.Item>
-                   <h4>SubTotal  ({cartItems.reduce((acc,item)=>acc+item.qty,0)}) items</h4>
-                   ${cartItems.reduce((acc,item)=>acc+item.qty*item.price,0).toFixed(2)}
+                   <h4 className='add-box' style={{color:'#3CA861'}}>SubTotal  ({cartItems.reduce((acc,item)=>acc+item.qty,0)}) items</h4>
+                   TK {cartItems.reduce((acc,item)=>acc+item.qty*item.price,0).toFixed(2)}
                  </ListGroup.Item>
                  <ListGroup.Item>
-                    <Button type='button' className='btn btn-block' disabled={cartItems.length===0} onClick={checkoutHandler}>
+                    <Button variant='success' style={{borderRadius:'5px'}} type='button' className='btn btn-block' disabled={cartItems.length===0} onClick={checkoutHandler}>
                       Checkout
                     </Button>
                    </ListGroup.Item>

@@ -84,7 +84,7 @@ const ProductScreen = ({ history, match}) => {
             </Col>
 
             <Col md={3}>
-              <ListGroup variant="flush">
+              <ListGroup variant='flush'>
                 <ListGroup.Item>
                   <h3>{product.name}</h3>
                 </ListGroup.Item>
@@ -129,6 +129,7 @@ const ProductScreen = ({ history, match}) => {
                             as="select"
                             value={qty}
                             onChange={(e) => setQty(e.target.value)}
+                            className='input-border'
                           >
                             {[...Array(product.countInStock).keys()].map(
                               (x) => {
@@ -151,6 +152,8 @@ const ProductScreen = ({ history, match}) => {
                       className="btn-block"
                       type="button"
                       disabled={product.countInStock === 0}
+                      variant='success'
+                      style={{borderRadius:'5px'}}
                     >
                       Add To Cart
                     </Button>
@@ -162,7 +165,7 @@ const ProductScreen = ({ history, match}) => {
 
           <Row>
             <Col md={6}>
-              <h2>Reviews</h2>
+              <h4 className='reviews'>Reviews</h4>
               {product.reviews.length === 0 && <Message variant='info'>No Reviews</Message>}
               <ListGroup variant="flush">
                 {product.reviews.map((review) => (
@@ -174,7 +177,7 @@ const ProductScreen = ({ history, match}) => {
                   </ListGroup.Item>
                 ))}
                 <ListGroup.Item>
-                  <h2>Drop Your Valuable Review</h2>
+                  <h4 className='comment' style={{color:'#3CA861'}}>Drop Your Comment</h4>
                   {successProductReview && (
                     <Message variant="success">
                       Review submitted successfully
@@ -192,6 +195,7 @@ const ProductScreen = ({ history, match}) => {
                           as="select"
                           value={rating}
                           onChange={(e) => setRating(e.target.value)}
+                          className='input-border'
                         >
                           <option value="">Select...</option>
                           <option value="1">1 - Poor</option>
@@ -208,12 +212,14 @@ const ProductScreen = ({ history, match}) => {
                           row="3"
                           value={comment}
                           onChange={(e) => setComment(e.target.value)}
+                          className='input-border'
                         ></Form.Control>
                       </Form.Group>
                       <Button
                         disabled={loadingProductReview}
                         type="submit"
-                        variant="primary"
+                        variant="success"
+                        style={{borderRadius:'5px'}}
                       >
                         Submit
                       </Button>
