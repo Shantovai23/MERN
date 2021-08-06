@@ -10,8 +10,11 @@ import { getOrderDetails, payOrder,deliverOrder } from "../actions/orderActions"
 import Loader from "../components/Loader";
 import {ORDER_PAY_RESET,ORDER_DELIVER_RESET} from '../constant/orderConstants'
 
+
+
 const OrderScreen = ({ match,history }) => {
-  const orderId=match.params.id
+ const orderId=match.params.id
+//  store.set('orderId', {orderId:orderId})
   const dispatch = useDispatch();
 
   const [sdkReady, setSdkReady] = useState(false)
@@ -67,6 +70,8 @@ const OrderScreen = ({ match,history }) => {
     }
    }
   }, [dispatch,orderId,order,successPay,successDeliver]);
+
+
 
 
   const successPaymentHandler=(paymentResult)=>{
@@ -180,7 +185,7 @@ const OrderScreen = ({ match,history }) => {
               {!order.isPaid && (
                 <ListGroup.Item>
                   {loadingPay && <Loader />}
-                  <Button type='button' className='btn-block my-2' variant='info' style={{borderRadius:'5px'}}>SSL Commerce</Button>
+                  <Link to='/sslpayment'><Button type='button' className='btn-block my-2' variant='info' style={{borderRadius:'5px'}}>SSL Commerce</Button></Link>
                   {!sdkReady ? (
                     <Loader />
                   ) : (

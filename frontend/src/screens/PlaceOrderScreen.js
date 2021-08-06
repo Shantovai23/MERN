@@ -7,6 +7,8 @@ import CheckoutSteps from "../components/CheckoutSteps";
 import Message from "../components/Message";
 import { createOrder } from "../actions/orderActions";
 
+
+
 const PlaceOrderScreen = ({ history }) => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
@@ -23,6 +25,7 @@ const PlaceOrderScreen = ({ history }) => {
   const { order, success, error } = orederCreate;
    
  
+  
 
   const placeOrderHandler = (e) => {
     dispatch(
@@ -38,7 +41,10 @@ const PlaceOrderScreen = ({ history }) => {
     );
   };
 
+ 
+
   useEffect(() => {
+   
     if (success) {
       history.push(`/order/${order._id}`);
     }
@@ -53,8 +59,8 @@ const PlaceOrderScreen = ({ history }) => {
               <h2 style={{color:'#3CA861'}} className='shipping'>Shipping</h2>
               <p>
                 <strong>Address:</strong>
-                {cart.shippingAddress.address}, {cart.shippingAddress.city},{" "}
-                {cart.shippingAddress.postalCode},{" "}
+                {cart.shippingAddress.address}, {cart.shippingAddress.city},
+                {cart.shippingAddress.postalCode},
                 {cart.shippingAddress.country}
               </p>
             </ListGroup.Item>

@@ -1,5 +1,8 @@
 //ssl
 import { PaymentSession } from "ssl-commerz-node";
+import Order from '../models/orderModel.js'
+import User from '../models/userModel.js'
+
 
 // for ssl
 
@@ -7,8 +10,14 @@ const tran_id ="_" + Math.random().toString(36).substr(2, 9) + new Date().getTim
 
 //ssl commerce
 
+
+
 const initailPayment = async (req, res) => {
-  const payment = new PaymentSession(
+    
+    
+
+
+    const payment = new PaymentSession(
     true,
     process.env.STORE_ID,
     process.env.STORE_PASSWORD
@@ -24,7 +33,7 @@ const initailPayment = async (req, res) => {
 
   // Set order details
   payment.setOrderInfo({
-    total_amount: 1670, // Number field
+    total_amount: 1200, // Number field
     currency: "BDT", // Must be three character string
     tran_id: tran_id, // Unique Transaction id
     emi_option: 0, // 1 or 0
@@ -32,14 +41,14 @@ const initailPayment = async (req, res) => {
 
   // Set customer info
   payment.setCusInfo({
-    name: "Simanta Paul",
-    email: "simanta@bohubrihi.com",
-    add1: "66/A Midtown",
-    add2: "Andarkilla",
-    city: "Chittagong",
+    name: req.user.name,
+    email: req.user.email,
+    add1: 'test',
+    add2: 'test',
+    city: 'test',
     state: "Optional",
-    postcode: 4000,
-    country: "Bangladesh",
+    postcode: 123,
+    country: 'test',
     phone: "010000000000",
     fax: "Customer_fax_id", 
   });
@@ -47,20 +56,20 @@ const initailPayment = async (req, res) => {
   // Set shipping info
   payment.setShippingInfo({
     method: "Courier", //Shipping method of the order. Example: YES or NO or Courier
-    num_item: 2,
-    name: "Simanta Paul",
-    add1: "66/A Midtown",
-    add2: "Andarkilla",
-    city: "Chittagong",
+    num_item: 5,
+    name:'test',
+    add1: 'test',
+    add2: 'test',
+    city: 'test',
     state: "Optional",
-    postcode: 4000,
-    country: "Bangladesh",
+    postcode: 1234,
+    country: 'test',
   });
 
   // Set Product Profile
   payment.setProductInfo({
-    product_name: "Computer",
-    product_category: "Electronics",
+    product_name: "General",
+    product_category: "General",
     product_profile: "general",
   });
 

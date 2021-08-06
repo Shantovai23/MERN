@@ -36,5 +36,6 @@
     "nodemon": "^2.0.7",
     "react-password-strength-bar": "^0.3.5",
     "ssl-commerz-node": "^1.0.4"
+   
   }
 }

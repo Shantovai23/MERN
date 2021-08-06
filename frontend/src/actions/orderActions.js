@@ -256,6 +256,15 @@ export const deliverOrder = (order) => async (dispatch, getState) => {
       })
     }
   }
+
+  
+  export const initPayment=(token,order)=>{ 
+    return axios.get(`/api/payment`,{
+      headers:{
+        Authorization: `Bearer ${token}`
+      }
+    })
+  }
   
   
   
