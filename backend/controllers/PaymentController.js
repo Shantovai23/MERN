@@ -1,21 +1,18 @@
 //ssl
+
 import { PaymentSession } from "ssl-commerz-node";
 import Order from '../models/orderModel.js'
-import User from '../models/userModel.js'
 
-
-// for ssl
 
 const tran_id ="_" + Math.random().toString(36).substr(2, 9) + new Date().getTime();
 
 //ssl commerce
-
-
-
 const initailPayment = async (req, res) => {
-    
-    
-
+   
+   
+   const orderData=await Order.findById(req.params.id)
+   console.log(orderData)
+   
 
     const payment = new PaymentSession(
     true,
@@ -33,7 +30,7 @@ const initailPayment = async (req, res) => {
 
   // Set order details
   payment.setOrderInfo({
-    total_amount: 1200, // Number field
+    total_amount:orderData.totalPrice, // Number field
     currency: "BDT", // Must be three character string
     tran_id: tran_id, // Unique Transaction id
     emi_option: 0, // 1 or 0
@@ -56,14 +53,14 @@ const initailPayment = async (req, res) => {
   // Set shipping info
   payment.setShippingInfo({
     method: "Courier", //Shipping method of the order. Example: YES or NO or Courier
-    num_item: 5,
+    num_item: orderData.orderItems.length,
     name:'test',
     add1: 'test',
     add2: 'test',
     city: 'test',
     state: "Optional",
     postcode: 1234,
-    country: 'test',
+    country: 'test', 
   });
 
   // Set Product Profile
@@ -72,9 +69,11 @@ const initailPayment = async (req, res) => {
     product_category: "General",
     product_profile: "general",
   });
+   
 
-  const response = await payment.paymentInit();
+  let response = await payment.paymentInit();
   return res.status(200).send(response);
+ 
 };
 
 export default initailPayment;

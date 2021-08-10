@@ -1,10 +1,15 @@
+
 import axios from 'axios'
-import {ORDER_CREATE_REQUEST,ORDER_CREATE_SUCCESS,ORDER_CREATE_FAIL, ORDER_DETAILS_REQUEST, ORDER_DETAILS_SUCCESS, ORDER_DETAILS_FAIL, ORDER_PAY_REQUEST, ORDER_PAY_SUCCESS, ORDER_PAY_FAIL, ORDER_LIST_MY_SUCCESS, ORDER_LIST_MY_REQUEST, ORDER_LIST_MY_FAIL, ORDER_LIST_REQUEST, ORDER_LIST_SUCCESS, ORDER_LIST_FAIL, ORDER_DELIVER_REQUEST, ORDER_DELIVER_SUCCESS, ORDER_DELIVER_FAIL} from '../constant/orderConstants'
+import {ORDER_CREATE_REQUEST,ORDER_CREATE_SUCCESS,ORDER_CREATE_FAIL, ORDER_DETAILS_REQUEST, ORDER_DETAILS_SUCCESS, ORDER_DETAILS_FAIL, ORDER_PAY_REQUEST, ORDER_PAY_SUCCESS, ORDER_PAY_FAIL, ORDER_LIST_MY_SUCCESS, ORDER_LIST_MY_REQUEST, ORDER_LIST_MY_FAIL, ORDER_LIST_REQUEST, ORDER_LIST_SUCCESS, ORDER_LIST_FAIL, ORDER_DELIVER_REQUEST, ORDER_DELIVER_SUCCESS, ORDER_DELIVER_FAIL, CART_REQUEST, CART_SUCCESS, CART_FAIL} from '../constant/orderConstants'
 import { USER_LOGIN_SUCCESS } from '../constant/userConstants'
 import { logout } from './userActions'
 
 
+
+
+
 export const createOrder = (order) => async (dispatch, getState) => {
+ 
     try {
       dispatch({
         type: ORDER_CREATE_REQUEST,
@@ -47,6 +52,11 @@ export const createOrder = (order) => async (dispatch, getState) => {
       })
     }
   }
+
+
+
+
+  
 
 
 
@@ -256,10 +266,10 @@ export const deliverOrder = (order) => async (dispatch, getState) => {
       })
     }
   }
-
-  
-  export const initPayment=(token,order)=>{ 
-    return axios.get(`/api/payment`,{
+ 
+ 
+  export const initPayment=(token,id)=>{ 
+    return axios.get(`/api/payment/${id}`,{
       headers:{
         Authorization: `Bearer ${token}`
       }

@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState,} from "react";
 import axios from 'axios'
-import { Row, Col, ListGroup, Image, Card, Button ,Badge} from "react-bootstrap";
+import { Row, Col, ListGroup, Image, Card, Button} from "react-bootstrap";
 import { PayPalButton } from 'react-paypal-button-v2'
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -14,13 +14,15 @@ import {ORDER_PAY_RESET,ORDER_DELIVER_RESET} from '../constant/orderConstants'
 
 const OrderScreen = ({ match,history }) => {
  const orderId=match.params.id
-//  store.set('orderId', {orderId:orderId})
-  const dispatch = useDispatch();
+
+ const dispatch = useDispatch();
 
   const [sdkReady, setSdkReady] = useState(false)
  
   const orderDetail = useSelector((state) => state.orderDetails);
   const { order, loading, error } = orderDetail;
+
+
 
   const orderPay = useSelector((state) => state.orderPay)
   const { loading: loadingPay, success: successPay } = orderPay
@@ -58,7 +60,7 @@ const OrderScreen = ({ match,history }) => {
       document.body.appendChild(script)
     }
 
-   if(!order || successPay || successDeliver){
+   if(!order || successPay || successDeliver || order._id !== orderId){
      dispatch({type:ORDER_PAY_RESET})
      dispatch({type:ORDER_DELIVER_RESET})
     dispatch(getOrderDetails(orderId))
@@ -76,7 +78,7 @@ const OrderScreen = ({ match,history }) => {
 
   const successPaymentHandler=(paymentResult)=>{
     console.log('pay',paymentResult)
-    dispatch(payOrder(orderId, paymentResult))
+    dispatch(payOrder(orderId,paymentResult))
   }
 
   
@@ -110,7 +112,7 @@ const OrderScreen = ({ match,history }) => {
                 <strong>Method:</strong>
                 {order.paymentMethod}
               </p>
-              {order.isPaid? (<Message variant='success'>Pain on {order.paidAt}</Message>) : (<Message variant='danger'>Not Paid</Message>)}
+              {order.isPaid? (<Message variant='success'>Paid on {order.paidAt}</Message>) : (<Message variant='danger'>Not Paid</Message>)}
             </ListGroup.Item>
 
             <ListGroup.Item>
@@ -186,6 +188,7 @@ const OrderScreen = ({ match,history }) => {
                 <ListGroup.Item>
                   {loadingPay && <Loader />}
                   <Link to='/sslpayment'><Button type='button' className='btn-block my-2' variant='info' style={{borderRadius:'5px'}}>SSL Commerce</Button></Link>
+
                   {!sdkReady ? (
                     <Loader />
                   ) : (

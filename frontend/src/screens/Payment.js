@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
-
 import { Link } from "react-router-dom";
 import { initPayment } from "../actions/orderActions";
 import { useSelector } from "react-redux";
+
+
+
+
+
 
 const Payment = () => {
   
@@ -13,11 +17,14 @@ const Payment = () => {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
-  
+  const orderDetail = useSelector((state) => state.orderDetails);
+  const { order } = orderDetail;
+
  
+
   useEffect(() => {
-    initPayment(userInfo.token)
-      .then((response) => {
+    initPayment(userInfo.token,order._id)
+      .then((response) => {  
         if (response.data.status === "SUCCESS") {
           setSessionSuccess(true);
           setRedirectUrl(response.data.GatewayPageURL);
@@ -29,7 +36,7 @@ const Payment = () => {
         setSessionSuccess(false);
         console.log(err);
       });
-  }, [userInfo.token]);
+  }, [userInfo.token,order]);
 
   return (
     <div>

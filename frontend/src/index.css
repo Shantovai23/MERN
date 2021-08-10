@@ -144,10 +144,12 @@ h3{
 }
 
 .input-border{
-  border: none;
-  outline: none;
-  border-bottom: 1px solid #3CA861; 
+
+  border-bottom: 1.5px solid #3CA861; 
+  background-color: #fff;
 }
+
+
 
 .table-margin{
   margin-top: 30px;

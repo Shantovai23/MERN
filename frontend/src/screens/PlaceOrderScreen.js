@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import { Row, Col, ListGroup, Image, Card, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import CheckoutSteps from "../components/CheckoutSteps";
 import Message from "../components/Message";
-import { createOrder } from "../actions/orderActions";
+import {  createOrder } from "../actions/orderActions";
 
 
 
@@ -23,8 +23,7 @@ const PlaceOrderScreen = ({ history }) => {
   ).toFixed(2);
   const orederCreate = useSelector((state) => state.orderCreate);
   const { order, success, error } = orederCreate;
-   
- 
+  
   
 
   const placeOrderHandler = (e) => {
@@ -39,6 +38,7 @@ const PlaceOrderScreen = ({ history }) => {
         totalPrice: cart.totalPrice,
       })
     );
+    localStorage.removeItem('cartItems')
   };
 
  
@@ -119,7 +119,7 @@ const PlaceOrderScreen = ({ history }) => {
               <ListGroup.Item>
                 <Row>
                   <Col>Items</Col>
-                  <Col>${cart.itemsPrice}</Col>
+                  <Col>Tk {cart.itemsPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
