@@ -17,7 +17,7 @@ export const initailPayment = async (req, res) => {
    
    
    const orderData=await Order.findById(req.params.id)
-   console.log(orderData)
+  //  console.log(orderData)
    
 
     const payment = new PaymentSession(
@@ -28,9 +28,9 @@ export const initailPayment = async (req, res) => {
 
   // Set the urls
   payment.setUrls({
-    success: "https://krishivaibd.herokuapp.com/success", // If payment Succeed
-    fail: "https://krishivaibd.herokuapp.com/fail", // If payment failed
-    cancel: "https://krishivaibd.herokuapp.com/cancel", // If user cancel payment
+    success: "https://krishivaibd.herokuapp.com", // If payment Succeed
+    fail: "https://krishivaibd.herokuapp.com", // If payment failed
+    cancel: "https://krishivaibd.herokuapp.com", // If user cancel payment
     ipn: "https://krishivaibd.herokuapp.com/api/payment/ipn", // SSLCommerz will send http post request in this link
   });
 
