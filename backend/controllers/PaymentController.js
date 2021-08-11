@@ -85,7 +85,7 @@ export const initailPayment = async (req, res) => {
 };
 
 export const paymentSuccess=async(req,res)=>{
-  res.json({message:"Payment Completed",url:"https://krishivaibd.herokuapp.com"})
+  res.json({message:"Payment Completed ,Go to website",url:"https://krishivaibd.herokuapp.com"})
 }
 
 
