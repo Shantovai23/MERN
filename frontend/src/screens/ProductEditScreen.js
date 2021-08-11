@@ -190,7 +190,7 @@ const ProductEditScreen = ({ match, history }) => {
               ></Form.Control>
             </Form.Group>
 
-            <Button type="submit" variant="success" style={{borderRadius:'5px'}}>
+            <Button className='but' type="submit" variant="success" style={{borderRadius:'5px'}}>
               Update
             </Button>
           </Form>

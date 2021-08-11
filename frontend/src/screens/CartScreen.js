@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
+import swal from 'sweetalert';
 import {
   Row,
   Col,
@@ -31,6 +32,12 @@ const CartScreen = ({ match, location, history }) => {
 
   const removeFromCartHandler=(id)=>{
    dispatch(removeFromCart(id))
+   swal({
+    title: "Deleted",
+    text: "You deleted the Product",
+    icon: "error",
+    button: "Close",
+  });
 
    //that was a bug that remains the last product to the cart after reload the browser that page,thats why params always give that specific id  of last added product ,and it reload with the id ,and it remians in the storage//
    
@@ -105,7 +112,7 @@ const CartScreen = ({ match, location, history }) => {
                    TK {cartItems.reduce((acc,item)=>acc+item.qty*item.price,0).toFixed(2)}
                  </ListGroup.Item>
                  <ListGroup.Item>
-                    <Button variant='success' style={{borderRadius:'5px'}} type='button' className='btn btn-block' disabled={cartItems.length===0} onClick={checkoutHandler}>
+                    <Button variant='success' style={{borderRadius:'5px'}} type='button' className='btn btn-block but' disabled={cartItems.length===0} onClick={checkoutHandler}>
                       Checkout
                     </Button>
                    </ListGroup.Item>

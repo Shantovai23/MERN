@@ -30,7 +30,8 @@ const LoginScreen = ({location,history}) => {
 
   }
   return (
-    <FormContainer>
+    
+      <FormContainer >
       <h2 className='sign-in'>Sign In</h2>
       {error && <Message variant='danger'>{error}</Message>}
       {loading && <Loader/>}
@@ -57,7 +58,7 @@ const LoginScreen = ({location,history}) => {
           ></Form.Control>
         </Form.Group>
 
-        <Button type="submit" variant="primary" style={{backgroundColor:'#3CA861',borderRadius:'5px'}}>
+        <Button className='but' type="submit" variant="primary" style={{backgroundColor:'#3CA861',borderRadius:'5px'}}>
           Login
         </Button>
       </Form>
@@ -72,6 +73,7 @@ const LoginScreen = ({location,history}) => {
         </Col>
       </Row>
     </FormContainer>
+  
   );
 };
 

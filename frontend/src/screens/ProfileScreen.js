@@ -7,6 +7,7 @@ import Loader from "../components/Loader";
 import { getUserDetails, updateUserProfile } from "../actions/userActions";
 import { USER_UPDATE_PROFILE_RESET } from "../constant/userConstants";
 import {listMyOrders} from '../actions/orderActions'
+import swal from 'sweetalert';
 
 
 
@@ -53,6 +54,7 @@ const ProfileScreen = ({  history }) => {
       setMessage('Passwords do not match')
     } else {
       dispatch(updateUserProfile({ id: user._id, name, email, password }))
+      swal("Profile Updated Successfully!","Thank You","success");
     }
   }
 
@@ -111,7 +113,7 @@ const ProfileScreen = ({  history }) => {
             ></Form.Control>
           </Form.Group>
 
-          <Button type="submit" variant="success" style={{borderRadius:'5px'}}>
+          <Button className='but' type="submit" variant="success" style={{borderRadius:'5px'}}>
             Update
           </Button>
         </Form>

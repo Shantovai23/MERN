@@ -76,7 +76,7 @@ const ProductListScreen = ({ history, match }) => {
           <h2 className='products-list'>Products</h2>
         </Col>
         <Col className="text-right">
-          <Button className="my-3" onClick={createProductHandler} variant='success' style={{borderRadius: '5px'}}>
+          <Button className="my-3 but" onClick={createProductHandler} variant='success' style={{borderRadius: '5px'}}>
             <i className="fas fa-plus"></i> Create Product
           </Button>
         </Col>
@@ -117,6 +117,7 @@ const ProductListScreen = ({ history, match }) => {
                     variant="danger"
                     className="btn-sm"
                     onClick={() => deleteHandler(product._id)}
+                    
                   >
                     <i className="fas fa-trash"></i>
                   </Button>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import swal from 'sweetalert';
 import {
   Row,
   Col,
@@ -51,10 +52,11 @@ const ProductScreen = ({ history, match}) => {
       dispatch(listProductDetails(match.params.id))
       dispatch({ type: PRODUCT_CREATE_REVIEW_RESET })
     }
-  }, [dispatch, match, successProductReview])
+  }, [dispatch, match, successProductReview,product._id])
 
   const addToCartHandler = () => {
     history.push(`/cart/${match.params.id}?qty=${qty}`);
+    swal("Thank You", "Product Added", "success");
   };
 
   const submitHandler = (e) => {
@@ -149,7 +151,7 @@ const ProductScreen = ({ history, match}) => {
                   <ListGroup.Item>
                     <Button
                       onClick={addToCartHandler}
-                      className="btn-block"
+                      className="btn-block but"
                       type="button"
                       disabled={product.countInStock === 0}
                       variant='success'
@@ -220,6 +222,7 @@ const ProductScreen = ({ history, match}) => {
                         type="submit"
                         variant="success"
                         style={{borderRadius:'5px'}}
+                        className='but'
                       >
                         Submit
                       </Button>
