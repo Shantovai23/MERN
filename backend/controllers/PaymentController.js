@@ -29,7 +29,7 @@ export const initailPayment = async (req, res) => {
 
   // Set the urls
   payment.setUrls({
-    success: "https://krishivaibd.herokuapp.com/api/payment/success", // If payment Succeed
+    success: "https://krishivaibd.herokuapp.com", // If payment Succeed
     fail: "https://krishivaibd.herokuapp.com", // If payment failed
     cancel: "https://krishivaibd.herokuapp.com", // If user cancel payment
     ipn: "https://krishivaibd.herokuapp.com/api/payment/ipn", // SSLCommerz will send http post request in this link
@@ -83,7 +83,5 @@ export const initailPayment = async (req, res) => {
   return res.status(200).send(response);
  
 };
-export const paymentSucess=async(req,res)=>{
-  res.status(201).json({message:"payment completed Go https://krishivaibd.herokuapp.com"})
-}
+
 
