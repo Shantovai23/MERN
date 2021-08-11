@@ -22,9 +22,9 @@ const initailPayment = async (req, res) => {
 
   // Set the urls
   payment.setUrls({
-    success: "yoursite.com/success", // If payment Succeed
-    fail: "yoursite.com/fail", // If payment failed
-    cancel: "yoursite.com/cancel", // If user cancel payment
+    success: "https://krishivaibd.herokuapp.com/", // If payment Succeed
+    fail: "https://krishivaibd.herokuapp.com/", // If payment failed
+    cancel: "https://krishivaibd.herokuapp.com/", // If user cancel payment
     ipn: "yoursite.com/ipn", // SSLCommerz will send http post request in this link
   });
 
@@ -68,10 +68,11 @@ const initailPayment = async (req, res) => {
     product_name: "General",
     product_category: "General",
     product_profile: "general",
-  });
-   
+  }); 
 
+ 
   let response = await payment.paymentInit();
+  await Order.findOneAndUpdate({_id:req.params.id},{isPaid:true})
   return res.status(200).send(response);
  
 };

@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+const date=Date.now();
 const orderSchema = mongoose.Schema(
   {
     user: {
@@ -31,10 +32,10 @@ const orderSchema = mongoose.Schema(
       required: true,
     },
     paymentResult: {
-      id: { type: String },
-      status: { type: String },
-      update_time: { type: String },
-      email_address: { type: String },
+      id: { type: String,default:333},
+      status: { type: String,default:'Pending'},
+      update_time: { type: String,default: date},
+      email_address: { type: String,default:'mernstack23@gmail.com' },
     },
     taxPrice: {
       type: Number,
@@ -58,6 +59,7 @@ const orderSchema = mongoose.Schema(
     },
     paidAt: {
       type: Date,
+      default:date
     },
     isDelivered: {
       type: Boolean,
@@ -66,6 +68,7 @@ const orderSchema = mongoose.Schema(
     },
     deliveredAt: {
       type: Date,
+      default:date
     },
   },
   {
