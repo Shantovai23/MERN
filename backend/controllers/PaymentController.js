@@ -6,8 +6,14 @@ import Order from '../models/orderModel.js'
 
 const tran_id ="_" + Math.random().toString(36).substr(2, 9) + new Date().getTime();
 
+
+
+export  const ipn= async(req,res)=>{
+  console.log(req.body);
+}
+
 //ssl commerce
-const initailPayment = async (req, res) => {
+export const initailPayment = async (req, res) => {
    
    
    const orderData=await Order.findById(req.params.id)
@@ -25,7 +31,7 @@ const initailPayment = async (req, res) => {
     success: "https://krishivaibd.herokuapp.com/success", // If payment Succeed
     fail: "https://krishivaibd.herokuapp.com/fail", // If payment failed
     cancel: "https://krishivaibd.herokuapp.com/cancel", // If user cancel payment
-    ipn: "https://krishivaibd.herokuapp.com", // SSLCommerz will send http post request in this link
+    ipn: "https://krishivaibd.herokuapp.com/api/payment/ipn", // SSLCommerz will send http post request in this link
   });
 
   // Set order details
@@ -77,4 +83,4 @@ const initailPayment = async (req, res) => {
  
 };
 
-export default initailPayment;
+
