@@ -22,10 +22,10 @@ const initailPayment = async (req, res) => {
 
   // Set the urls
   payment.setUrls({
-    success: "https://krishivaibd.herokuapp.com/", // If payment Succeed
-    fail: "https://krishivaibd.herokuapp.com/", // If payment failed
-    cancel: "https://krishivaibd.herokuapp.com/", // If user cancel payment
-    ipn: "yoursite.com/ipn", // SSLCommerz will send http post request in this link
+    success: "https://krishivaibd.herokuapp.com", // If payment Succeed
+    fail: "https://krishivaibd.herokuapp.com", // If payment failed
+    cancel: "https://krishivaibd.herokuapp.com", // If user cancel payment
+    ipn: "https://krishivaibd.herokuapp.com", // SSLCommerz will send http post request in this link
   });
 
   // Set order details
