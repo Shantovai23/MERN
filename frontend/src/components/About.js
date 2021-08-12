@@ -8,7 +8,6 @@ const About = () => {
   return (
     <Container className="py-3 my-3">
       <h2 className="founder text-center works-text">
-        {" "}
         What is KrishiVai.bd ?{" "}
       </h2>
       <Row>

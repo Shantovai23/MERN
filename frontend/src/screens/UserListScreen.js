@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import {listUsers,deleteUser} from '../actions/userActions'
+import swal from 'sweetalert'
 
 
 const UserListScreen = ({history}) => {
@@ -18,10 +19,24 @@ const UserListScreen = ({history}) => {
     const userDelete=useSelector((state)=>state.userDelete)
     const {success:successDelete}=userDelete
 
-    const deleteHandler=(id)=>{
-        if(window.confirm('Are You Sure?')){
-            dispatch(deleteUser(id))
-        }
+    const deleteHandler=(id)=>{     
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted,you will not be able to recover this User!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+                dispatch(deleteUser(id))
+              swal("User has been deleted!", {
+                icon: "success",
+              });
+            } else {
+              swal("User is safe!");
+            }
+          });
      
     }
 

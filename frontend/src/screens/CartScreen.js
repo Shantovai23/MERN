@@ -33,9 +33,9 @@ const CartScreen = ({ match, location, history }) => {
   const removeFromCartHandler=(id)=>{
    dispatch(removeFromCart(id))
    swal({
-    title: "Deleted",
-    text: "You deleted the Product",
-    icon: "error",
+    title: "Removed",
+    text: "You Removed the Product from Cart",
+    icon: "warning",
     button: "Close",
   });
 

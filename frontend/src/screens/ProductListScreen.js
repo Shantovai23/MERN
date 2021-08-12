@@ -4,6 +4,7 @@ import { Table, Button, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
+import swal from 'sweetalert'
 import {
   listProducts,
   deleteProduct,
@@ -59,9 +60,26 @@ const ProductListScreen = ({ history, match }) => {
   ]);
 
   const deleteHandler = (id) => {
-    if (window.confirm("Are You Sure?")) {
-      dispatch(deleteProduct(id));
-    }
+    // if (window.confirm("Are You Sure?")) {
+    //   dispatch(deleteProduct(id));
+    // }
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted,you will not be able to recover this Product!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        dispatch(deleteProduct(id));
+        swal("Product has been deleted!", {
+          icon: "success",
+        });
+      } else {
+        swal("Product is safe!");
+      }
+    });
   };
 
   const createProductHandler = (product) => {
@@ -104,7 +122,7 @@ const ProductListScreen = ({ history, match }) => {
               <tr key={product._id}>
                 <td>{product._id}</td>
                 <td>{product.name}</td>
-                <td>${product.price}</td>
+                <td>TK {product.price}</td>
                 <td>{product.category}</td>
                 <td>{product.brand}</td>
                 <td>
