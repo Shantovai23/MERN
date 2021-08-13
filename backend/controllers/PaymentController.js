@@ -1,6 +1,6 @@
 //ssl
 
-import { json } from "express";
+import path from 'path'
 import { PaymentSession } from "ssl-commerz-node";
 import Order from '../models/orderModel.js'
 
@@ -83,9 +83,10 @@ export const initailPayment = async (req, res) => {
   return res.status(200).send(response);
  
 };
-
+const __dirname = path.resolve()
 export const paymentSuccess=async(req,res)=>{
-  res.json({message:"Payment Completed ,Go to website",url:"https://krishivaibd.herokuapp.com"})
+  // res.json({message:"Payment Completed ,Go to website",url:"https://krishivaibd.herokuapp.com"})
+  res.sendFile(path.resolve(__dirname,'frontend','msg','index.html'))
 }
 
 
