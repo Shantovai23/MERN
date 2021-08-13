@@ -112,7 +112,7 @@ const CartScreen = ({ match, location, history }) => {
                    TK {cartItems.reduce((acc,item)=>acc+item.qty*item.price,0).toFixed(2)}
                  </ListGroup.Item>
                  <ListGroup.Item>
-                    <Button variant='success' style={{borderRadius:'5px'}} type='button' className='btn btn-block but' disabled={cartItems.length===0} onClick={checkoutHandler}>
+                    <Button variant='success' style={{borderRadius:'5px'}} type='button' className='btn btn-block but bounce-in-top' disabled={cartItems.length===0} onClick={checkoutHandler}>
                       Checkout
                     </Button>
                    </ListGroup.Item>

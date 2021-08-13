@@ -149,7 +149,7 @@ const PlaceOrderScreen = ({ history }) => {
               <ListGroup.Item>
                 <Button
                   type="button"
-                  className="btn btn-block but"
+                  className="btn btn-block but bounce-in-top"
                   disabled={cart.cartItems.length === 0}
                   onClick={placeOrderHandler}
                   variant='success'

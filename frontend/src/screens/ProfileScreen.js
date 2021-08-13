@@ -113,7 +113,7 @@ const ProfileScreen = ({  history }) => {
             ></Form.Control>
           </Form.Group>
 
-          <Button className='but' type="submit" variant="success" style={{borderRadius:'5px'}}>
+          <Button className='but bounce-in-top' type="submit" variant="success" style={{borderRadius:'5px'}}>
             Update
           </Button>
         </Form>

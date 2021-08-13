@@ -58,7 +58,7 @@ const LoginScreen = ({location,history}) => {
           ></Form.Control>
         </Form.Group>
 
-        <Button className='but' type="submit" variant="primary" style={{backgroundColor:'#3CA861',borderRadius:'5px'}}>
+        <Button className='but bounce-in-top' type="submit" variant="primary" style={{backgroundColor:'#3CA861',borderRadius:'5px'}}>
           Login
         </Button>
       </Form>

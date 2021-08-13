@@ -94,7 +94,7 @@ const ProductListScreen = ({ history, match }) => {
           <h2 className='products-list'>Products</h2>
         </Col>
         <Col className="text-right">
-          <Button className="my-3 but" onClick={createProductHandler} variant='success' style={{borderRadius: '5px'}}>
+          <Button className="my-3 but bounce-in-top" onClick={createProductHandler} variant='success' style={{borderRadius: '5px'}}>
             <i className="fas fa-plus"></i> Create Product
           </Button>
         </Col>

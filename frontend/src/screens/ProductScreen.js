@@ -151,7 +151,7 @@ const ProductScreen = ({ history, match}) => {
                   <ListGroup.Item>
                     <Button
                       onClick={addToCartHandler}
-                      className="btn-block but"
+                      className="btn-block but bounce-in-top"
                       type="button"
                       disabled={product.countInStock === 0}
                       variant='success'
@@ -222,7 +222,7 @@ const ProductScreen = ({ history, match}) => {
                         type="submit"
                         variant="success"
                         style={{borderRadius:'5px'}}
-                        className='but'
+                        className='but bounce-in-top'
                       >
                         Submit
                       </Button>

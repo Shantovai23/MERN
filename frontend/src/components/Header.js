@@ -26,7 +26,7 @@ const Header = ({history}) => {
       <Navbar bg="light" variant="light" expand="lg" collapseOnSelect id='bg' >
         <Container fluid >
           <LinkContainer to="/">
-            <Navbar.Brand> <i class="fab fa-pagelines" style={{fontSize:'35px',color:'#3CA861 '}}></i><span className='logoName'>KrishiVai.bd</span> </Navbar.Brand>
+            <Navbar.Brand> <i class="fab fa-pagelines" style={{fontSize:'35px',color:'#3CA861 '}}></i><span className='logoName text-focus-in '>KrishiVai.bd</span> </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav"/> 
           <Navbar.Collapse id="basic-navbar-nav">

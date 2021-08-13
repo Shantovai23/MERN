@@ -74,7 +74,7 @@ const ShippingScreen = ({ history }) => {
           ></Form.Control> 
         </Form.Group>
 
-        <Button className='but' type='submit' variant='success' style={{borderRadius:'5px'}}>Continue</Button>
+        <Button className='but bounce-in-top' type='submit' variant='success' style={{borderRadius:'5px'}}>Continue</Button>
       </Form>
     </FormContainer>
   );
