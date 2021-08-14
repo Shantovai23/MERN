@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import CheckoutSteps from "../components/CheckoutSteps";
 import Message from "../components/Message";
 import {  createOrder } from "../actions/orderActions";
+import swal from 'sweetaler'
 
 
 
@@ -27,7 +28,7 @@ const PlaceOrderScreen = ({ history }) => {
   
 
   const placeOrderHandler = (e) => {
-    dispatch(
+  dispatch(
       createOrder({
         orderItems: cart.cartItems,
         shippingAddress: cart.shippingAddress,
@@ -38,6 +39,7 @@ const PlaceOrderScreen = ({ history }) => {
         totalPrice: cart.totalPrice,
       })
     );
+    swal("Thank You", "Your Order Placed", "success");
     localStorage.removeItem('cartItems')
   };
 
