@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import CheckoutSteps from "../components/CheckoutSteps";
 import Message from "../components/Message";
 import {  createOrder } from "../actions/orderActions";
-import swal from 'sweetaler'
+import swal from 'sweetalert';
 
 
 
