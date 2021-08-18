@@ -39,7 +39,7 @@ const PlaceOrderScreen = ({ history }) => {
         totalPrice: cart.totalPrice,
       })
     );
-    swal("Thank You", "Your Order Placed", "success");
+    swal("Your Order Placed","success");
     localStorage.removeItem('cartItems')
   };
 
